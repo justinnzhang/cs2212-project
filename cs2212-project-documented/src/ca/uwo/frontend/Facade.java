@@ -30,7 +30,6 @@ public class Facade implements FacadeCommands {
 		this.controller = new Controller();
 		this.bank = new BankingTransactions();
 		
-		System.out.println("Hello");
 	}
 	
 	/* (non-Javadoc)
