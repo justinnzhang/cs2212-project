@@ -29,6 +29,8 @@ public class Facade implements FacadeCommands {
 		super();
 		this.controller = new Controller();
 		this.bank = new BankingTransactions();
+		
+		System.out.println("Hello");
 	}
 	
 	/* (non-Javadoc)
