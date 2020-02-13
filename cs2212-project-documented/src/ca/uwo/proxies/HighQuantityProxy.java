@@ -10,13 +10,12 @@ public class HighQuantityProxy extends Proxy {
 
 	@Override
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
-		// TODO Auto-generated method stub
-		
+		Facade facade = new Facade();
+		facade.placeOrder(orderDetails, buyer);		
 	}
 
 	@Override
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
-		// TODO Auto-generated method stub
 		
 	}
 
