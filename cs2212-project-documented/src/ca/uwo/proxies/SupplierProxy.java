@@ -15,7 +15,6 @@ public class SupplierProxy extends Proxy{
 
 	@Override
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
-		
 		next.placeOrder(orderDetails, buyer);
 	}
 

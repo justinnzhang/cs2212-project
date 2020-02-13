@@ -65,7 +65,7 @@ public class Facade implements FacadeCommands {
 		//replenished accordingly and the supplier need to get paid.
 		System.out.println("Facade: ");
 		// Create the order
-		Order newOrder = createOrder(restockDetails, "supplier");
+		Order newOrder = createOrder(restockDetails, supplier.toString());
 		
 		System.out.println("\tReplenishing Stock");
 		// Replenish stock according to order

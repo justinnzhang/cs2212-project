@@ -31,8 +31,20 @@ public class WelcomeProxy extends Proxy {
 	 */
 	@Override
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
-		Facade facade = new Facade();
-		facade.placeOrder(orderDetails, buyer);
+
+//		Facade facade = new Facade();
+//		facade.placeOrder(orderDetails, buyer);
+		
+		if (authenticate(buyer) == true) {
+			
+			// Pass onto the next part of the chain, which is the SupplierProxy()
+			// NOTE: the order is not to be placed in this proxy
+			next.placeOrder(orderDetails, buyer);
+		}
+		else {
+			System.out.println("Authentication error! Try using just your PIN, or call an agent on the phone.");
+		}
+		
 	}
 
 	/* (non-Javadoc)
@@ -40,13 +52,17 @@ public class WelcomeProxy extends Proxy {
 	 */
 	@Override
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
-		Facade facade = new Facade();
-		facade.restock(restockDetails, supplier);
+//		Facade facade = new Facade();
+//		facade.restock(restockDetails, supplier);
+		
+		
 	}
 	
 	private boolean authenticate(Buyer buyer) {
 		
 		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter password for " + buyer.getUserName() + ":");
 		
 		String enteredPassword = input.nextLine();
 		
