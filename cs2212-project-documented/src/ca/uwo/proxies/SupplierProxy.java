@@ -22,6 +22,9 @@ public class SupplierProxy extends Proxy{
 	@Override
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
 		Facade facade = new Facade();
+		
+		//uses the restock method from the facade class
 		facade.restock(restockDetails, supplier);
+		
 	}
 }

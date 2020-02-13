@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="cs2212-project-documented/src"/>
+	<classpathentry kind="output" path="cs2212-project-documented/bin"/>
+</classpath>

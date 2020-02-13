@@ -1,6 +1,7 @@
 package ca.uwo.proxies;
 
 import java.util.Map;
+import java.util.Scanner;
 
 import ca.uwo.client.Buyer;
 import ca.uwo.client.Supplier;
@@ -15,10 +16,14 @@ import ca.uwo.frontend.Facade;
  * design pattern.
  */
 public class WelcomeProxy extends Proxy {
+	
+	
+	private Proxy next;
 	/**
 	 * constructor for WelcomeProxy class.
 	 */
 	public WelcomeProxy() {
+		this.next = new SupplierProxy();
 	}
 
 	/* (non-Javadoc)
@@ -37,6 +42,19 @@ public class WelcomeProxy extends Proxy {
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
 		Facade facade = new Facade();
 		facade.restock(restockDetails, supplier);
+	}
+	
+	private boolean authenticate(Buyer buyer) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		String enteredPassword = input.nextLine();
+		
+		
+		if (enteredPassword == buyer.getPassword()) 
+			return true;
+		else
+			return false;
 	}
 
 }
