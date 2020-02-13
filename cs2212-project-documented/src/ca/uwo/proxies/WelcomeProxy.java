@@ -55,6 +55,8 @@ public class WelcomeProxy extends Proxy {
 //		Facade facade = new Facade();
 //		facade.restock(restockDetails, supplier);
 		
+		// Pass onto the next part of the chain
+		next.restock(restockDetails, supplier);
 		
 	}
 	

@@ -19,6 +19,8 @@ public class LowQuantityProxy extends Proxy{
 			next.placeOrder(orderDetails, buyer);
 		}
 		else {
+			
+			// Uses placeOrder method from Facade class
 			Facade facade = new Facade();
 			facade.placeOrder(orderDetails, buyer);	
 		}	
