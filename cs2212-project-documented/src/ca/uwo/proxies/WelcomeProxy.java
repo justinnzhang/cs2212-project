@@ -68,8 +68,7 @@ public class WelcomeProxy extends Proxy {
 		
 		String enteredPassword = input.nextLine();
 		
-		
-		if (enteredPassword == buyer.getPassword()) 
+		if (enteredPassword.equals(buyer.getPassword())) 
 			return true;
 		else
 			return false;

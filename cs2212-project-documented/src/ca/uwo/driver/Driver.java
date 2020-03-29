@@ -43,8 +43,8 @@ public class Driver {
 				if (lineTokens[0].equals("StrategyChange")) {
 					// Uncomment the following lines when restock strategies are implemented
 					
-					//RestockStrategy strategy = RestockStrategyFactory.create(lineTokens[1]);
-					//StockManager.getInstance().setRestockStrategy(strategy);
+//					RestockStrategy strategy = RestockStrategyFactory.create(lineTokens[1]);
+//					StockManager.getInstance().setRestockStrategy(strategy);
 				} else {
 					Integer buyerId = Integer.parseInt(lineTokens[0]);
 					Map<String, Integer> orderItems = new HashMap<String, Integer>();
