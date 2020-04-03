@@ -135,6 +135,7 @@ public class Item {
 		for (int i = 0; i < viewers.size(); i++) {
 			viewers.get(i).inform(this);
 		}
+		
 	}
 
 

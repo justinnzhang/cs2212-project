@@ -17,13 +17,14 @@ import ca.uwo.frontend.Facade;
  */
 public class WelcomeProxy extends Proxy {
 	
-	
+	private static WelcomeProxy instance = null;
+
 	private Proxy next;
 	/**
 	 * constructor for WelcomeProxy class.
 	 */
 	public WelcomeProxy() {
-		this.next = new SupplierProxy();
+		this.next = SupplierProxy.getInstance();
 	}
 
 	/* (non-Javadoc)
@@ -72,6 +73,17 @@ public class WelcomeProxy extends Proxy {
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	 * there should be only one instance of WelcomeProxy class.
+	 * @return the instance of WelcomeProxy.
+	 */
+	public static WelcomeProxy getInstance() {
+		if (instance == null)
+			instance = new WelcomeProxy();
+		
+		return instance;
 	}
 
 }

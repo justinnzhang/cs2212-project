@@ -3,6 +3,7 @@ package ca.uwo.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.uwo.controller.Controller;
 import ca.uwo.dataAccess.DataManager;
 import ca.uwo.utils.ItemResult;
 import ca.uwo.utils.OrderItem;
@@ -13,9 +14,24 @@ import ca.uwo.utils.OrderItem;
  */
 public class ItemRepository {
 	
+	private static ItemRepository instance = null;
+
+	
 	private Map<String, Item> savedItems;
 	private DataManager dataManager;
 
+	
+	/**
+	 * there should be only one instance of ItemRepository class.
+	 * @return the instance of ItemRepository.
+	 */
+	public static ItemRepository getInstance() {
+		if (instance == null)
+			instance = new ItemRepository();
+		
+		return instance;
+	}
+	
 	/**
 	 * update the quantity of item in the database for the deplete operation.
 	 * @param orderItem one entry in the order.

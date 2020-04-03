@@ -74,6 +74,8 @@ public class OrderItem {
 		this.quantity = quantity;
 		this.price = -1.0;
 		this.itemResult = null;
+		
+		this.pricingStrategy = IndividualPricingStrategyRepo.getInstance().getStrategy(itemName);
 	}
 
 	/**
@@ -81,8 +83,10 @@ public class OrderItem {
 	 * @return itemPrice the price of the item.
 	 */
 	public double calculateItemPrice() {
-		double itemPrice = quantity * price;
+		double itemPrice = this.pricingStrategy.calculate(this.quantity, this.price);
 		return itemPrice;
+		
+		
 	}
 
 }

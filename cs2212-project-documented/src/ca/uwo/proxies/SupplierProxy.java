@@ -7,10 +7,13 @@ import ca.uwo.client.Supplier;
 import ca.uwo.frontend.Facade;
 
 public class SupplierProxy extends Proxy{
+	
+	private static SupplierProxy instance = null;
+	
 	private Proxy next;
 	
 	public SupplierProxy() {
-		next = new LowQuantityProxy();
+		next = LowQuantityProxy.getInstance();
 	}
 
 	@Override
@@ -20,10 +23,22 @@ public class SupplierProxy extends Proxy{
 
 	@Override
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
-		Facade facade = new Facade();
+		Facade facade = Facade.getInstance();
 		
 		//uses the restock method from the facade class
 		facade.restock(restockDetails, supplier);
 		
 	}
+	
+	/**
+	 * there should be only one instance of ItemRepository class.
+	 * @return the instance of ItemRepository.
+	 */
+	public static SupplierProxy getInstance() {
+		if (instance == null)
+			instance = new SupplierProxy();
+		
+		return instance;
+	}
+	
 }

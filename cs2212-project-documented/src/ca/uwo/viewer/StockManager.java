@@ -35,8 +35,8 @@ public class StockManager extends Viewer implements Runnable {
 		// restockDetails.put("pear", 50);
 		// restockDetails.put("mango", 50);
 		// restockDetails.put("onions", 50);
-				Thread t = new Thread(this);
-				t.start();
+			Thread t = new Thread(this);
+			t.start();
 		}
 
 	
@@ -46,8 +46,8 @@ public class StockManager extends Viewer implements Runnable {
 	@Override
 	public void inform(Item item) {
 		// Do appropriate action when informed of items being out of stock
-		
-		restockDetails.put(item.getName(), 50);
+		int restockQuantity = restockStrategy.calculateQuantity(item.getName(), item.getAvailableQuantity(), item.getPrice());
+		restockDetails.put(item.getName(), restockQuantity);
 	}
 
 	// TODO make concurrent
