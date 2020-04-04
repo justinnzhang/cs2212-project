@@ -20,6 +20,10 @@ public class LowStockState implements ItemState {
 		int availableQuantity = item.getAvailableQuantity();
 		if (availableQuantity < quantity) {
 			itemResult = new ItemResult("OUT OF STOCK", ResponseCode.Not_Completed);
+			
+			// Notify if out of stock
+			item.notifyViewers();
+
 		} else {
 			availableQuantity -= quantity;
 			itemResult = new ItemResult("AVAILABLE", ResponseCode.Completed);
@@ -28,9 +32,8 @@ public class LowStockState implements ItemState {
 		item.setAvailableQuantity(availableQuantity);
 
 		// Change state if needed
-		item.updateState();
+		item.setState(availableQuantity);
 		
-		item.notifyViewers();
 		
 		return itemResult;
 	}
@@ -44,7 +47,7 @@ public class LowStockState implements ItemState {
 		item.setAvailableQuantity(availableQuantity);
 		ItemResult itemResult = new ItemResult("RESTOCKED", ResponseCode.Completed);
 		
-		item.updateState();
+		item.setState(availableQuantity);
 		
 		return itemResult;
 	}

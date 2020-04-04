@@ -15,7 +15,7 @@ public class DepleteStockOperation extends Operation {
 	 */
 	@Override
 	public Order perform(Order anOrder) {
-		itemRepo = new ItemRepository();
+		itemRepo = ItemRepository.getInstance();
 		
 		for(OrderItem orderItem : anOrder.getOrderItems()) {
 			itemRepo.depleteItemStock(orderItem);

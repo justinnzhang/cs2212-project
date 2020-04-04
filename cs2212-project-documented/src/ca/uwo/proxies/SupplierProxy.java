@@ -12,7 +12,7 @@ public class SupplierProxy extends Proxy{
 	
 	private Proxy next;
 	
-	public SupplierProxy() {
+	private SupplierProxy() {
 		next = LowQuantityProxy.getInstance();
 	}
 

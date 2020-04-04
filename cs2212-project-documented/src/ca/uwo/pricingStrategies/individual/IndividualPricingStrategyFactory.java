@@ -5,7 +5,7 @@ public class IndividualPricingStrategyFactory {
 	
 	public static IndividualPricingStrategy create(String type) {
 		switch(type) {
-		case "test":
+		case "strategy2":
 			return new IndividualPricingStrategy2();
 		default:
 			return new IndividualPricingStrategy1();

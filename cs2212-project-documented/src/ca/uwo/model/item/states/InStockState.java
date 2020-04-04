@@ -21,6 +21,10 @@ public class InStockState implements ItemState{
 		int availableQuantity = item.getAvailableQuantity();
 		if (availableQuantity < quantity) {
 			itemResult = new ItemResult("OUT OF STOCK", ResponseCode.Not_Completed);
+			
+			// Notify if out of stock
+			item.notifyViewers();
+
 		} else {
 			availableQuantity -= quantity;
 			itemResult = new ItemResult("AVAILABLE", ResponseCode.Completed);
@@ -30,10 +34,8 @@ public class InStockState implements ItemState{
 		item.setAvailableQuantity(availableQuantity);
 		
 		// Change state if needed
-		item.updateState();
-		
-		// Send notification to viewers
-		item.notifyViewers();
+		item.setState(availableQuantity);
+
 		
 		return itemResult;
 	}
@@ -47,8 +49,7 @@ public class InStockState implements ItemState{
 		item.setAvailableQuantity(availableQuantity);
 		ItemResult itemResult = new ItemResult("RESTOCKED", ResponseCode.Completed);
 		
-		// Change state if needed
-		item.updateState();
+		// Don't need to update state after replenishing when in stock
 		
 		return itemResult;
 	}

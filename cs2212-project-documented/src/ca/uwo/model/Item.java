@@ -121,8 +121,11 @@ public class Item {
 	 * Used to update the state based on what quantity is available
 	 * Should be called whenever a state may be changed (i.e. after restock or depletion)
 	 */
-	public void updateState() {
-		this.state = ItemStateFactory.Create(this.availableQuantity);
+	public void setState(int quantity) {
+		
+		this.state = ItemStateFactory.Create(quantity);
+		
+		System.out.println("The state is: " + this.state.toString());
 	}
 
 	
@@ -136,6 +139,14 @@ public class Item {
 			viewers.get(i).inform(this);
 		}
 		
+	}
+	
+	public void addViewer(StockManager item) {
+		viewers.add(item);
+	}
+	
+	public void removeViewer(StockManager item) {
+		viewers.remove(item);
 	}
 
 

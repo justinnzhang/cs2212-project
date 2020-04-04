@@ -80,7 +80,7 @@ public class ItemRepository {
 	/**
 	 * constructor for ItemRepository class.
 	 */
-	public ItemRepository() {
+	private ItemRepository() {
 		super();
 		dataManager = DataManager.getInstance();
 		savedItems = new HashMap<>();

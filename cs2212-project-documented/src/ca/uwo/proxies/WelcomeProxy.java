@@ -23,7 +23,7 @@ public class WelcomeProxy extends Proxy {
 	/**
 	 * constructor for WelcomeProxy class.
 	 */
-	public WelcomeProxy() {
+	private WelcomeProxy() {
 		this.next = SupplierProxy.getInstance();
 	}
 
@@ -63,14 +63,20 @@ public class WelcomeProxy extends Proxy {
 	
 	private boolean authenticate(Buyer buyer) {
 		
-		Scanner input = new Scanner(System.in);
+//		Scanner input = new Scanner(System.in);
+//		
+//		System.out.println("Enter password for " + buyer.getUserName() + ":");
+//		
+//		String enteredPassword = input.nextLine();
+//		
+//		if (enteredPassword.equals(buyer.getPassword())) 
+//			return true;
+//		else
+//			return false;
 		
-		System.out.println("Enter password for " + buyer.getUserName() + ":");
-		
-		String enteredPassword = input.nextLine();
-		
-		if (enteredPassword.equals(buyer.getPassword())) 
+		if (buyer.getPassword().contains("1"))
 			return true;
+		
 		else
 			return false;
 	}

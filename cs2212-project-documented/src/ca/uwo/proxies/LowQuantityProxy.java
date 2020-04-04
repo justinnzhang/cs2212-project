@@ -13,7 +13,7 @@ public class LowQuantityProxy extends Proxy{
 	private static LowQuantityProxy instance = null;
 
 	
-	public LowQuantityProxy() {
+	private LowQuantityProxy() {
 		next = HighQuantityProxy.getInstance();
 	}
 	

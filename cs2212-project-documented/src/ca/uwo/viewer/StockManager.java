@@ -83,7 +83,7 @@ public class StockManager extends Viewer implements Runnable {
 
 			System.out.println("Wait for orders to accumulate...");
 			try {
-				Thread.sleep(15000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

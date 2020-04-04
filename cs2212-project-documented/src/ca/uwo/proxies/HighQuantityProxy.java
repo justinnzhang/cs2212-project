@@ -10,7 +10,12 @@ import ca.uwo.model.ItemRepository;
 public class HighQuantityProxy extends Proxy {
 	
 	private static HighQuantityProxy instance = null;
-
+	
+	/**
+	 * constructor for HighQuantityProxy class.
+	 */
+	private HighQuantityProxy() {}	
+	
 	@Override
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
 		Facade facade = Facade.getInstance();

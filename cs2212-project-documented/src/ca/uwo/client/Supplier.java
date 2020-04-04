@@ -15,7 +15,7 @@ public class Supplier extends Client {
 	 * @param restockDetails  the name and quantity of each restocked item.
 	 */
 	public void supply(Map<String, Integer> restockDetails) {
-		WelcomeProxy proxy = new WelcomeProxy();
+		WelcomeProxy proxy = WelcomeProxy.getInstance();
 		proxy.restock(restockDetails,this);
 	}
 }

@@ -40,7 +40,7 @@ public class Buyer extends Client {
 		}
 		System.out.println("My name is :" + this.userName + " and I'm buying : ");
 		System.out.println(orderDetails);
-		WelcomeProxy proxy = new WelcomeProxy();
+		WelcomeProxy proxy = WelcomeProxy.getInstance();
 		proxy.placeOrder(orderDetails, this);
 	}
 	

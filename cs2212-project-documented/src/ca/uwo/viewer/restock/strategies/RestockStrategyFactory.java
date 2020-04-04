@@ -11,7 +11,7 @@ public class RestockStrategyFactory {
 //
 		
 		switch(type) {
-		case "test":
+		case "strategy2":
 			return new RestockStrategy2();
 		default:
 			return new RestockStrategy1();
